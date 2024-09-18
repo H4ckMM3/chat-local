@@ -1,0 +1,83 @@
+/* Основной контейнер для чата */
+#chat-container {
+  height: calc(100vh - 60px); /* Высота контейнера чата с учетом поля ввода */
+  overflow-y: auto;           /* Добавим скроллинг для сообщений */
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+/* Стили для списка сообщений */
+#messages {
+  list-style-type: none;       /* Убираем стандартные маркеры списка */
+  padding: 0;
+  margin: 0;
+}
+
+#messages li {
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  background-color: #e6e6e6;
+  border-radius: 8px;
+  word-wrap: break-word;       /* Позволяет переносить длинные слова */
+  max-width: 75%;
+}
+
+#messages li:nth-child(odd) {
+  background-color: #d4d4d4;
+}
+
+/* Контейнер для ввода текста */
+.input-container {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Тень сверху */
+}
+
+/* Текстовое поле */
+#input {
+  flex: 1;                           /* Заполняет оставшееся пространство */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* Кнопка отправки */
+#send-button {
+  background-color: #4CAF50;         /* Зеленая кнопка */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении */
+#send-button:hover {
+  background-color: #45a049;         /* Более темный зеленый при наведении */
+}
+
+/* Стиль для кнопки при нажатии */
+#send-button:active {
+  background-color: #3e8e41;
+}
+
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 600px) {
+  #send-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #input {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
