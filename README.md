@@ -9,4 +9,5 @@
 6. Чтобы запустить сервер используте команлу npm start
 7. После открой браузер и перейди по адресу: http://localhost:3000.
 
+![image](https://github.com/user-attachments/assets/1e9a25c8-a752-44a1-a1da-486a90045f73)
 
