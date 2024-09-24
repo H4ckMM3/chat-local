@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" src="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h3 class="center-align teal-text">Чат</h3>
+    
+    <div id="chat-container" class="card-panel grey lighten-4" style="height: 400px; overflow-y: auto;">
+        <ul id="messages" class="collection"></ul>
+    </div>
+    
+
+      <form id="form" class="input-field">
+        <div class="row">
+            <div class="input-field col s10">
+                <input id="input" type="text" class="validate" autocomplete="off" placeholder="Введите сообщение...">
+            </div>
+            <div class="input-field col s2">
+                <button class="btn waves-effect waves-light" type="submit">Отправить</button>
+            </div>
+        </div>
+      </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+  
+        const form = document.getElementById('form');
+        const input = document.getElementById('input');
+        const messages = document.getElementById('messages');
+  
+        // Отправка сообщений
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const message = input.value.trim();  // Убираем лишние пробелы
+          if (message) {  // Отправляем сообщение только если оно не пустое
+            socket.emit('chat message', message);
+            input.value = '';  // Очищаем поле после отправки
+          }
+        });
+  
+        // Получение сообщений
+        socket.on('chat message', (msg) => {
+          const item = document.createElement('li');
+          item.textContent = msg;
+          messages.appendChild(item);
+          window.scrollTo(0, document.body.scrollHeight);  // Прокручиваем вниз
+        });
+      </script>
+</body>
+</html>

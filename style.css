@@ -1,0 +1,43 @@
+/* Стили для улучшения внешнего вида чата */
+
+/* Основной контейнер чата */
+#chat-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Сообщения */
+#messages li {
+  background-color: #e9ecef;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 75%;
+}
+
+/* Входящее сообщение */
+#messages li:nth-child(odd) {
+  background-color: #d4edda;
+}
+
+/* Поле ввода и кнопка отправки */
+form {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Поле ввода */
+#input {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Кнопка отправки */
+.btn-success {
+  border-radius: 8px;
+}
+
+.btn-success:hover {
+  background-color: #45a049;
+}
